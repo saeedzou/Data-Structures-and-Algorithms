@@ -69,6 +69,21 @@ class LinkedList:
             self.tail = None
         return temp
     
+    def pop_first(self):
+        pass
+
+    def get(self, index):
+        pass
+    
+    def set_value(self, index, value):
+        pass
+    
+    def remove(self, index):
+        pass
+
+    def reverse(self):
+        pass
+    
         
 
 new_ll = LinkedList(4)
