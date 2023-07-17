@@ -82,7 +82,12 @@ class LinkedList:
 
 
     def get(self, index):
-        pass
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
     
     def set_value(self, index, value):
         pass
@@ -98,10 +103,4 @@ class LinkedList:
 new_ll = LinkedList(4)
 new_ll.append(5)
 new_ll.prepend(10)
-new_ll.print_list()
-new_ll.pop_first()
-new_ll.print_list()
-new_ll.pop_first()
-new_ll.print_list()
-new_ll.pop_first()
 new_ll.print_list()
