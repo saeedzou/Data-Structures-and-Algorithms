@@ -33,13 +33,19 @@ class DoubleLinkedList:
             self.tail = new_node
         self.length += 1
 
-
-
     def pop(self):
         pass
 
     def prepend(self, value):
-        pass
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head.prev = new_node
+            self.head = new_node
+        self.length += 1
 
     def pop_first(self):
         pass
@@ -59,4 +65,5 @@ class DoubleLinkedList:
 
 dll = DoubleLinkedList(4)
 dll.append(19)
+dll.prepend(10)
 dll.print_list()
