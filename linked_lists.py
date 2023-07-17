@@ -70,7 +70,16 @@ class LinkedList:
         return temp
     
     def pop_first(self):
-        pass
+        if self.length == 0:
+            return None
+        temp = self.head
+        self.head = self.head.next
+        temp.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.tail = None
+        return temp
+
 
     def get(self, index):
         pass
@@ -89,3 +98,10 @@ class LinkedList:
 new_ll = LinkedList(4)
 new_ll.append(5)
 new_ll.prepend(10)
+new_ll.print_list()
+new_ll.pop_first()
+new_ll.print_list()
+new_ll.pop_first()
+new_ll.print_list()
+new_ll.pop_first()
+new_ll.print_list()
