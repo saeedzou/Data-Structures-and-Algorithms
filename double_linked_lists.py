@@ -19,10 +19,6 @@ class DoubleLinkedList:
             temp = temp.next
     
     def append(self, value):
-        #create node
-        #last node next points to new node
-        #tail to new node
-        #new_node prev to last node
         new_node = Node(value)
         if self.head is None:
             self.head = new_node
@@ -75,9 +71,14 @@ class DoubleLinkedList:
     def get(self, index):
         if index < 0 or index >= self.length:
             return None
-        temp = self.head
-        for _ in range(index):
-            temp = temp.next
+        if index < self.length / 2:
+            temp = self.head
+            for _ in range(index):
+                temp = temp.next
+        else:
+            temp = self.tail
+            for _ in range(self.length - 1, index, -1):
+                temp = temp.prev
         return temp
 
     def set_value(self, index, value):
