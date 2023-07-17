@@ -82,7 +82,11 @@ class DoubleLinkedList:
         return temp
 
     def set_value(self, index, value):
-        pass
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
 
     def insert(self, index, value):
         pass
