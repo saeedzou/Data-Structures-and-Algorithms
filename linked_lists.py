@@ -36,12 +36,41 @@ class LinkedList:
     def prepend(self, value):
         # create new Node
         # add Node to start
-        pass
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
+        self.length += 1
+
     def insert(self, index, value):
         # create new Node
         # insert node
         pass
+    
+    def pop(self):
+        # find next to tail node
+        # set tail to that node
+        # return the last node
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while (temp.next):
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
+    
+        
 
 new_ll = LinkedList(4)
 new_ll.append(5)
-new_ll.print_list()
+new_ll.prepend(10)
