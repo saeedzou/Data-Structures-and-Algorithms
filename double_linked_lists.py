@@ -19,7 +19,21 @@ class DoubleLinkedList:
             temp = temp.next
     
     def append(self, value):
-        pass
+        #create node
+        #last node next points to new node
+        #tail to new node
+        #new_node prev to last node
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.tail.next = new_node
+            new_node.prev = self.tail
+            self.tail = new_node
+        self.length += 1
+
+
 
     def pop(self):
         pass
@@ -44,4 +58,5 @@ class DoubleLinkedList:
 
 
 dll = DoubleLinkedList(4)
+dll.append(19)
 dll.print_list()
