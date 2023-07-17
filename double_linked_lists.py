@@ -34,7 +34,25 @@ class DoubleLinkedList:
         self.length += 1
 
     def pop(self):
-        pass
+        # iterate through list till next to last
+        # set the next to lasts next to None
+        # set the lasts prev to None
+        # set tail to next to last
+        if self.length == 0:
+            return None
+        temp = self.head
+        pre = self.head
+        while temp.next:
+            pre = temp
+            temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        temp.prev = None
+        self.length -= 1
+        if self.length == 0:
+            self.head = None
+            self.tail = None
+        return temp
 
     def prepend(self, value):
         new_node = Node(value)
