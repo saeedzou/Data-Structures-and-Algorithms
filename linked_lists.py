@@ -48,7 +48,20 @@ class LinkedList:
     def insert(self, index, value):
         # create new Node
         # insert node
-        pass
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        pre = self.get(index - 1)
+        temp = pre.next
+        pre.next = new_node
+        new_node.next = temp
+        self.length += 1
+        return True
+
     
     def pop(self):
         # find next to tail node
@@ -108,4 +121,5 @@ class LinkedList:
 new_ll = LinkedList(4)
 new_ll.append(5)
 new_ll.prepend(10)
+new_ll.insert(1, 22)
 new_ll.print_list()
