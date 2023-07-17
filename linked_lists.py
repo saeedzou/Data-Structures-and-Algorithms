@@ -90,7 +90,12 @@ class LinkedList:
         return temp
     
     def set_value(self, index, value):
-        pass
+        if index < 0 or index >= self.length:
+            return False
+        self.get(index).value = value
+        return True
+        
+        
     
     def remove(self, index):
         pass
