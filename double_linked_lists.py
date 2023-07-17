@@ -34,10 +34,6 @@ class DoubleLinkedList:
         self.length += 1
 
     def pop(self):
-        # iterate through list till next to last
-        # set the next to lasts next to None
-        # set the lasts prev to None
-        # set tail to next to last
         if self.length == 0:
             return None
         temp = self.head
@@ -66,7 +62,20 @@ class DoubleLinkedList:
         self.length += 1
 
     def pop_first(self):
-        pass
+        if self.length == 0:
+            return None
+        temp = self.head
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            temp.next = None
+            self.head.prev = None
+        self.length -= 1
+        return temp
+
+
 
     def get(self, index):
         pass
