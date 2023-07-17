@@ -89,7 +89,20 @@ class DoubleLinkedList:
         return False
 
     def insert(self, index, value):
-        pass
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        new_node = Node(value)
+        before = self.get(index - 1)
+        after = before.next
+        before.next = new_node
+        new_node.prev = before
+        after.prev = new_node
+        new_node.next = after
+        return True
 
     def remove(self, index):
         pass
@@ -98,4 +111,5 @@ class DoubleLinkedList:
 dll = DoubleLinkedList(4)
 dll.append(19)
 dll.prepend(10)
+dll.insert(2, 22)
 dll.print_list()
