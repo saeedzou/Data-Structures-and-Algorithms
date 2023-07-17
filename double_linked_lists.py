@@ -72,10 +72,13 @@ class DoubleLinkedList:
         self.length -= 1
         return temp
 
-
-
     def get(self, index):
-        pass
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
 
     def set_value(self, index, value):
         pass
