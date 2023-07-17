@@ -102,14 +102,18 @@ class DoubleLinkedList:
         new_node.prev = before
         after.prev = new_node
         new_node.next = after
+        self.length += 1
         return True
 
     def remove(self, index):
-        pass
-
-
-dll = DoubleLinkedList(4)
-dll.append(19)
-dll.prepend(10)
-dll.insert(2, 22)
-dll.print_list()
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+        temp = self.get(index)
+        temp.next.prev = temp.prev
+        temp.prev.next = temp.next
+        temp.next = None
+        temp.prev = None
+        self.length -= 1
+        return temp
